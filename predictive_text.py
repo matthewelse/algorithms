@@ -3,12 +3,8 @@ import copy
 
 f = open("resources/dict.txt", "rt")
 inputwords = f.readlines()
-originalwords = []
-words = []
-
-for word in inputwords:
-	originalwords.append(word.upper().strip())
-	words.append(list(word.upper().strip()))
+originalwords = [word.upper().strip() for word in inputwords]
+words = [list(word.upper().strip()) for word in inputwords]
 
 del inputwords
 
@@ -40,8 +36,7 @@ for i in range(len(numbers)):
 	for j in range(len(words)):
 		if i < len(words[j]):
 			if words[j][i] != numbers[i]:
-				words[j] = ""
+				originalwords[j] = ""
 
-for i in range(len(words)):
-	if words[i] != "":
-		print (originalwords[i])
+outputwords = [word for word in outputwords if word != ""]
+print (outputwords)

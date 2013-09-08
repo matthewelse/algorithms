@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import copy
 
-f = open("resources/dict.txt", "rt")
+f = open("../resources/dict.txt", "rt")
 inputwords = f.readlines()
 originalwords = [word.upper().strip() for word in inputwords]
 words = [list(word.upper().strip()) for word in inputwords]

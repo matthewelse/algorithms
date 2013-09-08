@@ -1,4 +1,4 @@
-algorithms
+Algorithms
 ==========
 
-Somewhere to put all of the algorithms I'm going to implement in Python. I will make this public once there are some here.
+This is somewhere for me to publsh algorithms that I'm going to implement either in Python or, if it's for computing, BBC BASIC.

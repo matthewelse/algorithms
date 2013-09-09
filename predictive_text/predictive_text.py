@@ -12,17 +12,9 @@ del inputwords
 for i in range(len(words)):
 	for j in range(0, len(words[i])):
 		ascii = ord(words[i][j])
-
-		if ascii >= 65 and ascii <= 67:
-			words[i][j] = "2"
-		elif ascii >= 68 and ascii <= 69: 
-			words[i][j] = "3"
-		elif ascii >= 70 and ascii <= 73: 
-			words[i][j] = "4"
-		elif ascii >= 74 and ascii <= 76: 
-			words[i][j] = "5"
-		elif ascii >= 77 and ascii <= 79: 
-			words[i][j] = "6"
+	
+		if ascii >= 65 and ascii <= 79:
+			words[i][j] = str(int(math.floor((ascii-65)/3)+2))
 		elif ascii >= 80 and ascii <= 83: 
 			words[i][j] = "7"
 		elif ascii >= 84 and ascii <= 86: 
@@ -38,5 +30,5 @@ for i in range(len(numbers)):
 			if words[j][i] != numbers[i]:
 				originalwords[j] = ""
 
-outputwords = [word for word in outputwords if word != ""]
+outputwords = [word for word in originalwords if word != ""]
 print (outputwords)

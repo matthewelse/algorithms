@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import copy
+import copy, math
 
 f = open("../resources/dict.txt", "rt")
 inputwords = f.readlines()

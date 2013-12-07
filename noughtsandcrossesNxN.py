@@ -1,4 +1,5 @@
 # Noughts and Crosses Game
+size = 4
 
 def print_grid(grid):
     for row in grid:
@@ -14,7 +15,7 @@ def print_grid(grid):
 
 def winner(grid):
     winner = 0 
-    diagonals = [[grid[i+j][i] for i in range(len(grid)) if i+j >= 0 and i+j < len(grid)] for j in range(-2, 3)] + [[grid[i][4-(i+j)] for i in range(len(grid)) if 4-(i+j) >= 0 and 4-(i+j) < len(grid)] for j in range(-2, 3)]
+    diagonals = [[grid[i+j][i] for i in range(len(grid)) if i+j >= 0 and i+j < len(grid)] for j in range(3-len(grid), len(grid)-2)] + [[grid[i][len(grid)-1-(i+j)] for i in range(len(grid)) if len(grid)-1-(i+j) >= 0 and len(grid)-1-(i+j) < len(grid)] for j in range(3-len(grid), len(grid)-2)]
     
     # Check Rows...
     for y in range(0, len(grid)):
@@ -71,12 +72,7 @@ def winner(grid):
                 break 
     return winner
 
-grid = [[0,0,0,0,0],
-        [0,0,0,0,0],
-        [0,0,0,0,0],
-        [0,0,0,0,0],
-        [0,0,0,0,0]]
-
+grid = [[0 for x in xrange(size)] for x in xrange(size)]
 player = 1
 
 while winner(grid) == 0:
@@ -92,6 +88,7 @@ while winner(grid) == 0:
 
             assert grid[y][x] == 0, "Invalid Move"
             grid[y][x] = player
+            print grid
             break
         except (IndexError, ValueError, AssertionError):
             print("Invalid Move.")

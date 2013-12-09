@@ -1,6 +1,4 @@
 # Noughts and Crosses Game
-size = 4
-
 def print_grid(grid):
     for row in grid:
         output = ""
@@ -66,13 +64,17 @@ def winner(grid):
             elif cell != player and cell != 0:
                 player = cell
                 count = 1
-            
+            else:
+                count = 0
+                player = 0
+                
             if count == 3:
                 winner |= player
                 break 
     return winner
 
-grid = [[0 for x in xrange(size)] for x in xrange(size)]
+size = int(input("Enter grid size (>=3): "))
+grid = [[0 for x in range(size)] for x in range(size)]
 player = 1
 
 while winner(grid) == 0:
@@ -80,15 +82,15 @@ while winner(grid) == 0:
 
     while True:
         try:
-            print "Player %i's turn." % player
-            position = raw_input()
+            print("Player %i's turn." % player)
+            position = input()
 
             x = int(position[0])-1
             y = int(position[2])-1
 
             assert grid[y][x] == 0, "Invalid Move"
             grid[y][x] = player
-            print grid
+
             break
         except (IndexError, ValueError, AssertionError):
             print("Invalid Move.")
@@ -96,4 +98,4 @@ while winner(grid) == 0:
     player = 1 if player == 2 else 2
 
 print_grid(grid)
-print "Player %i wins." % winner(grid)
+print("Player %i wins." % winner(grid))

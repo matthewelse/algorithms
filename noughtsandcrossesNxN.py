@@ -83,10 +83,10 @@ while winner(grid) == 0:
     while True:
         try:
             print("Player %i's turn." % player)
-            position = input()
+            position = input().split()
 
             x = int(position[0])-1
-            y = int(position[2])-1
+            y = int(position[1])-1
 
             assert grid[y][x] == 0, "Invalid Move"
             grid[y][x] = player
